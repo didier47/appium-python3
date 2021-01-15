@@ -13,26 +13,26 @@ path = os.getcwd()
 
 def readheader():
     pathone = os.path.join(path, "template")
-    path_new = pathone + 'case.txt'
+    path_new = os.path.join(pathone, 'case.txt')
     return open(path_new, encoding='utf-8').read()
 
 
 def readerconet():
     pathone = os.path.join(path, "template")
-    path_new = pathone + 'content.txt'
+    path_new = os.path.join(pathone, 'content.txt')
     conet = open(path_new, encoding='utf-8').read()
     return conet
 
 
 def readiosheader():
     pathone = os.path.join(path, "template")
-    path_new = pathone + 'ioscase.txt'
+    path_new = os.path.join(pathone, 'ioscase.txt')
     return open(path_new, encoding='utf-8').read()
 
 
 def readeriosconet():
     pathone = os.path.join(path, "template")
-    path_new = pathone + 'ioscontent.txt'
+    path_new = os.path.join(pathone, 'ioscontent.txt')
     conet = open(path_new, encoding='utf-8').read()
     return conet
 

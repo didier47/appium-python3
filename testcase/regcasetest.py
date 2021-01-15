@@ -1,6 +1,7 @@
-import ddt
 import os
 import time
+
+import ddt
 from appium import webdriver
 
 from config.config import TestappPackage
@@ -14,8 +15,8 @@ from untils.recording_txt import write_recording
 
 path = os.getcwd()
 
-path_test_case = os.path.join("path", 'data')
-testcasedata = path_test_case + 'testcase_data.xlsx'
+path_test_case = os.path.join(path, 'data')
+testcasedata = os.path.join(path_test_case, 'testcase_data.xlsx')
 data_test = huoqu_test(testcasedata, index=1)
 from untils.saveresult import save_result
 
