@@ -4,8 +4,10 @@
   @create          2020-03-13 20:59
 '''
 
+import json
+import requests
+
 from config.config import Test_stf_plan, Test_stf_token
-import requests, json
 
 
 class StfPhoneOpear(object):

@@ -6,18 +6,23 @@
 @time: 2017/4/27 13:41
 """
 '''主运行文件'''
-from untils.pyreport_excel import create
-import unittest, random, datetime
-from untils.log import LOG, logger
-from untils.makecase import makecasefile
+import datetime
+import os
+import random
+import unittest
 from multiprocessing import Pool
+
 from testcase.regcasetest import regtest
-from untils.Parmeris import Parmer
 from untils.AppiumServer import AppiumServer
 from untils.BaseApk import getPhoneInfo, AndroidDebugBridge
-import os
+from untils.Parmeris import Parmer
+from untils.log import LOG, logger
+from untils.makecase import makecasefile
+from untils.pyreport_excel import create
+
 l_devices = []
-from  config.config import *
+from config.config import *
+
 
 @logger('生成设备配置链接的进程池')
 def runnerPool(getDevices):
@@ -39,7 +44,7 @@ def runnerPool(getDevices):
     for i in range(0, len(getDevices)):
         _pool = []
         _initApp = {}
-        if Test_mobile_type=="Android":
+        if Test_mobile_type == "Android":
             _initApp["deviceName"] = getDevices[i]["devices"]
             _initApp["udid"] = getDevices[i]["devices"]
             _initApp["platformVersion"] = getPhoneInfo(devices=_initApp["deviceName"])["release"]
@@ -47,13 +52,13 @@ def runnerPool(getDevices):
             _initApp["port"] = getDevices[i]["port"]
             _initApp["appPackage"] = TestappPackage
             _initApp["appActivity"] = TestAppActivity
-        elif  Test_mobile_type=="ios":
-            _initApp["platformName"]='ios'
-            _initApp["platformVersion"]= getDevices[i]['version']
-            _initApp["app"]= TestIosApkPath
-            _initApp["automationName"]="XCUITest"
-            _initApp["udid"]=getDevices[i]["udid"]
-            _initApp["deviceName"]= getDevices[i]["devices"]
+        elif Test_mobile_type == "ios":
+            _initApp["platformName"] = 'ios'
+            _initApp["platformVersion"] = getDevices[i]['version']
+            _initApp["app"] = TestIosApkPath
+            _initApp["automationName"] = "XCUITest"
+            _initApp["udid"] = getDevices[i]["udid"]
+            _initApp["deviceName"] = getDevices[i]["devices"]
         else:
             print("不支持的设备类型")
             return
@@ -76,16 +81,16 @@ def runnerCaseApp(devices):
 if __name__ == "__main__":
     LOG.info("测试开始执行")
     start_time = datetime.datetime.now()
-    devicess=[]
-    if Test_mobile_type=='Android':
+    devicess = []
+    if Test_mobile_type == 'Android':
         devicess = AndroidDebugBridge().attached_devices()
     else:
-        #todo 本地获取链接的ios设备
+        # todo 本地获取链接的ios设备
         pass
     makecasefile('reg', 'reg', 'reg')  # 没有的时候才会生成，一般都会有这个文件
     path = os.getcwd()
-    report_path=os.path.join(path,"testreport")
-    filenm =report_path + 'result.xls'
+    report_path = os.path.join(path, "testreport")
+    filenm = report_path + 'result.xls'
     if len(devicess) > 0:
         for dev in devicess:
             app = {}

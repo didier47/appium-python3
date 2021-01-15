@@ -5,7 +5,9 @@
 @time: 2018/1/20 13:01 
 """
 '''采集的性能测试数据存放在txt文档中'''
-import os, time
+import os
+import time
+
 from untils.log import LOG, logger
 
 path = os.getcwd()

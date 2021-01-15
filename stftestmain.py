@@ -3,16 +3,20 @@
   @auther         leizi
   @create          2020-03-14 09:40
 '''
-from config.config import Test_mobile_type, Test_plan_num, TestappPackage, TestAppActivity
-from untils.StfTestPhoneUntil import StfPhoneOpear
-import os, unittest, datetime, random
+import datetime
+import os
+import random
+import unittest
 from multiprocessing import Pool
+
+from config.config import Test_mobile_type, Test_plan_num, TestappPackage, TestAppActivity
 from testcase.regcasetest import regtest
+from untils.AppiumServer import AppiumServer
 from untils.Parmeris import Parmer
+from untils.StfTestPhoneUntil import StfPhoneOpear
 from untils.log import LOG
 from untils.makecase import makecasefile
 from untils.pyreport_excel import create
-from untils.AppiumServer import AppiumServer
 
 test_ophone = []
 
@@ -33,7 +37,7 @@ def connectmobile() -> list:
     all_connect_phone = test_ophone[:Test_plan_num]
     connect_adb_device = []
     for i in range(len(all_connect_phone)):
-        #TODO     设备申请后链接需要对链接的设备进行区分，
+        # TODO     设备申请后链接需要对链接的设备进行区分，
         ## 先找到已知设备列表，链接后，找到新增的那台设备，现在有bug
         LOG.info("---申请设备：%s-----" % all_connect_phone[i]['serial'])
         stf.oparyonephone(all_connect_phone[i]['serial'])

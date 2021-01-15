@@ -3,26 +3,39 @@
 @file: AppiumServer.py
 @time: 2018/9/20 14:37
 '''
-import os,urllib.request
+import os
+import platform
+import subprocess
+import threading
+import time
+import urllib.request
 from multiprocessing import Process
-import threading,time,platform,subprocess
-from untils.log import LOG,logger
+
+from untils.log import LOG
+
 '''启动appium服务'''
-class RunServer(threading.Thread):#启动服务的线程
+
+
+class RunServer(threading.Thread):  # 启动服务的线程
     def __init__(self, cmd):
         threading.Thread.__init__(self)
         self.cmd = cmd
+
     def run(self):
         os.system(self.cmd)
+
+
 class AppiumServer(object):
-    def __init__(self,kwargs):
-        self.kwargs=kwargs
-    def run(self,url):
+    def __init__(self, kwargs):
+        self.kwargs = kwargs
+
+    def run(self, url):
         time.sleep(10)
         response = urllib.request.urlopen(url, timeout=5)
         if str(response.getcode()).startswith("2"):
             return True
-    def start_server(self):#开启服务
+
+    def start_server(self):  # 开启服务
         for i in range(0, len(self.kwargs)):
             cmd = "appium  -p %s  " % (
                 self.kwargs[i]["port"])
@@ -45,7 +58,8 @@ class AppiumServer(object):
                     if 'listener started' in appium_line or 'Error: listen' in appium_line:
                         print("----server启动成功---")
                         break
-    def stop_server(devices:list):
+
+    def stop_server(devices: list):
         sysstr = platform.system()
         if sysstr == 'Windows':
             os.popen("taskkill /f /im node.exe")

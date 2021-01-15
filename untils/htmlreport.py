@@ -4,9 +4,11 @@
 @file: htmlreport.py
 @time: 2017/6/5 17:04
 """
-titles='接口测试'
+titles = '接口测试'
+
+
 def title(titles):
-    title='''<!DOCTYPE html>
+    title = '''<!DOCTYPE html>
 <html>
 <head>
 	<title>%s</title>
@@ -27,11 +29,15 @@ def title(titles):
     </style>
 </head>
 <body>
-	'''%(titles)
+	''' % (titles)
     return title
-connent='''<div  class='col-md-4 col-md-offset-4' style='margin-left:3%;'><h1>接口测试的结果</h1>'''
-def shouye(starttime,endtime,passge,fail):
-    beijing='''
+
+
+connent = '''<div  class='col-md-4 col-md-offset-4' style='margin-left:3%;'><h1>接口测试的结果</h1>'''
+
+
+def shouye(starttime, endtime, passge, fail):
+    beijing = '''
     <table  class="table table-hover table-condensed">
             <tbody>
                 <tr>
@@ -45,9 +51,11 @@ def shouye(starttime,endtime,passge,fail):
 			      </span></td>                  
 			   </tr> 
 			   </tbody></table>
-			   </div> '''%(starttime,endtime,(endtime-starttime),passge,fail)
+			   </div> ''' % (starttime, endtime, (endtime - starttime), passge, fail)
     return beijing
-shanghai='''<div class="row " style="margin:60px">
+
+
+shanghai = '''<div class="row " style="margin:60px">
         <div style='    margin-top: 18%;' >
         <div class="btn-group" role="group" aria-label="...">
             <button type="button" id="check-all" class="btn btn-primary">所有用例</button>
@@ -67,14 +75,18 @@ shanghai='''<div class="row " style="margin:60px">
             <td><strong>截图</strong></td>
         </tr>
     '''
+
+
 def passfail(tend):
-    if tend =='pass':
-        htl='''<td bgcolor="green">pass</td>'''
+    if tend == 'pass':
+        htl = '''<td bgcolor="green">pass</td>'''
     else:
-        htl='''<td bgcolor="fail">fail</td>'''
+        htl = '''<td bgcolor="fail">fail</td>'''
     return htl
-def ceshixiangqing(shebei,id,model,parm,asserts,result,pic):
-    xiangqing='''
+
+
+def ceshixiangqing(shebei, id, model, parm, asserts, result, pic):
+    xiangqing = '''
         <tr class="case-tr %s">
             <td>%s</td>
             <td>%s</td>
@@ -84,9 +96,11 @@ def ceshixiangqing(shebei,id,model,parm,asserts,result,pic):
             %s
             <td><img src='%s' width='150px',height='150px'></td>
         </tr>
-    '''%(shebei,shebei,id,model,parm,asserts,passfail(result),pic)
+    ''' % (shebei, shebei, id, model, parm, asserts, passfail(result), pic)
     return xiangqing
-weibu='''</div></div></table><script src="https://code.jquery.com/jquery.js"></script>
+
+
+weibu = '''</div></div></table><script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$("#check-danger").click(function(e){
@@ -118,17 +132,23 @@ weibu='''</div></div></table><script src="https://code.jquery.com/jquery.js"></s
 	});
 </script>
 </body></html>'''
-def relust(titles,starttime,endtime,passge,fail,id:list,shebei:list,model:list,parm:list,asserts:list,relust:list,pic:list):
-    relus=' '
+
+
+def relust(titles, starttime, endtime, passge, fail, id: list, shebei: list, model: list, parm: list, asserts: list,
+           relust: list, pic: list):
+    relus = ' '
     for i in range(len(shebei)):
-            if relust[i] == "pass":
-                clazz = "success"
-            else:
-                clazz='error'
-            relus+=(ceshixiangqing(shebei[i],id[i],model[i],parm[i],asserts[i],clazz,pic[i]))
-    text=title(titles)+connent+shouye(starttime,endtime,passge,fail)+shanghai+relus+weibu
+        if relust[i] == "pass":
+            clazz = "success"
+        else:
+            clazz = 'error'
+        relus += (ceshixiangqing(shebei[i], id[i], model[i], parm[i], asserts[i], clazz, pic[i]))
+    text = title(titles) + connent + shouye(starttime, endtime, passge, fail) + shanghai + relus + weibu
     return text
-def createHtml(filepath,titles,starttime,endtime,passge,fail,id:list,sheibei:list,model:list,parm:list,asserts:list,relusts:list,pic:list):
-    texts=relust(titles,starttime,endtime,passge,fail,id,sheibei,model,parm,asserts,relusts,pic)
-    with open(filepath,'wb') as f:
+
+
+def createHtml(filepath, titles, starttime, endtime, passge, fail, id: list, sheibei: list, model: list, parm: list,
+               asserts: list, relusts: list, pic: list):
+    texts = relust(titles, starttime, endtime, passge, fail, id, sheibei, model, parm, asserts, relusts, pic)
+    with open(filepath, 'wb') as f:
         f.write(texts.encode('utf-8'))

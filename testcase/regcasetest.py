@@ -1,17 +1,20 @@
+import ddt
+import os
+import time
 from appium import webdriver
-import ddt, os, time
+
+from config.config import TestappPackage
+from funtions.regpub import RegFuntion
 from untils.Parmeris import Parmer
-from untils.log import LOG
 from untils.disapp import make_dis
 from untils.gettestdata import huoqu_test
-from funtions.regpub import RegFuntion
 from untils.huoqu_xingneng import caijicpu, getnencun
+from untils.log import LOG
 from untils.recording_txt import write_recording
-from config.config import TestappPackage
 
 path = os.getcwd()
 
-path_test_case=os.path.join("path",'data')
+path_test_case = os.path.join("path", 'data')
 testcasedata = path_test_case + 'testcase_data.xlsx'
 data_test = huoqu_test(testcasedata, index=1)
 from untils.saveresult import save_result

@@ -8,9 +8,10 @@
 '''
 注册测试
 '''
-from untils.log import LOG, logger
-from excetfuntion.exectfuntion import Makeappcase
 import os
+
+from excetfuntion.exectfuntion import Makeappcase
+from untils.log import LOG, logger
 
 
 @logger('注册测试')

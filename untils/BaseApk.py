@@ -1,5 +1,8 @@
-import re, subprocess, os
-from untils.log import LOG, logger
+import os
+import re
+import subprocess
+
+from untils.log import LOG
 
 '''
 apk文件的读取信息

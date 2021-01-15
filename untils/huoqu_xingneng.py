@@ -4,8 +4,10 @@
 '''
 获取配置相关手机性能的数据
 '''
+import os
+import platform
+
 from untils.log import logger
-import platform, os
 
 
 def getsystemsta():

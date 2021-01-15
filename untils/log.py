@@ -2,9 +2,11 @@
 # @Date    : 2017-10-14 15:35:17
 # @Author  : leizi
 '''日志相关'''
-import os, logbook
-from logbook.more import ColorizedStderrHandler
+import logbook
+import os
 from functools import wraps
+
+from logbook.more import ColorizedStderrHandler
 
 check_path = '.'
 LOG_DIR = os.path.join(check_path, 'testlog')

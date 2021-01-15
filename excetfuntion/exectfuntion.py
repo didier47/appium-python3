@@ -3,9 +3,10 @@
 @file: exectfuntion.py 
 @time: 2018/4/17 13:46 
 """
-from untils.operyaml import open_da
-from untils.log import logger, LOG
 import time
+
+from untils.log import logger, LOG
+from untils.operyaml import open_da
 from untils.py_app import deriver_fengzhuang as feng
 
 '''解析测试步骤，按照需求进行测试用例

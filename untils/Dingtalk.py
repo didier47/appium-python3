@@ -4,7 +4,9 @@
 @time: 2017/12/26 17:34 
 """
 '''封装钉钉群发消息'''
-import requests, json
+import json
+import requests
+
 from config.config import Dingtalk_access_token
 
 
