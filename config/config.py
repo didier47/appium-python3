@@ -4,7 +4,7 @@
 @time: 2018/1/19 10:20 
 """
 '''
-配置app以及测试设备的相关信息
+Configurar la aplicación y probar la información relacionada con el equipo
 '''
 
 TestappPackage = 'com.hotbitmapgg.ohmybilibili'  # 被测应用名称
@@ -16,7 +16,7 @@ TestresetKeyboard = True
 Dingtalk_access_token = ''  # 钉钉的token
 Test_Project_name = ''
 TiTestuser = ''
-Test_user = "自动化"
+Test_user = "automatización"
 
 testversion = "2.0.0"  # 测试的版本
 

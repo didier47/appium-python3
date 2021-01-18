@@ -1,4 +1,4 @@
-Appium-Python-Client==0.26
+Appium-Python-Client==1.0.2
 ddt==1.1.1
 Logbook==1.1.0
 PyYAML==3.12

@@ -79,7 +79,7 @@ def runnerCaseApp(devices):
 
 
 if __name__ == "__main__":
-    LOG.info("测试开始执行")
+    LOG.info("Ejecución de pruebas")
     start_time = datetime.datetime.now()
     devicess = []
     if Test_mobile_type == 'Android':
