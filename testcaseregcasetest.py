@@ -1,5 +1,7 @@
 from appium import webdriver
 import unittest,ddt,os,time
+
+from untils.Parmeris import Parmer
 from untils.log import LOG
 from untils.disapp import make_dis
 from untils.gettestdata import huoqu_test
@@ -23,17 +25,17 @@ class regtest(Parmer):
         self.dis_app = make_dis(Testplatform=self.parm['platformName'],TestplatformVersion=self.parm['platformVersion'],
                                 Testdevicesname=self.parm['deviceName'],TestappPackage=self.parm['appPackage'],
                                 TestappActivity=self.parm['appActivity'])
-        self.deriver = webdriver.Remote('http://127.0.0.1:'+self.port+'/wd/hub',self.dis_app)
+        self.driver = webdriver.Remote('http://127.0.0.1:' + self.port + '/wd/hub', self.dis_app)
         LOG.info('reg测试用例开始执行')
     def tearDown(self):
         """ tearDown  """
         LOG.info('测试用例执行完毕，测试环境正在还原！')
         time.sleep(15)
-        self.deriver.quit()
+        self.driver.quit()
     @ddt.data(*data_test)
     def testregtest(self, data_test):
         """reg测试"""
-        regfun=RegFuntion(deriver=self.deriver)
+        regfun=RegFuntion(driver=self.driver)
         self.assertuen=regfun.reg(**data_test)
         cpu=caijicpu(TestappPackage)
         neicun=getnencun(TestappPackage)

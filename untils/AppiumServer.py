@@ -46,7 +46,7 @@ class AppiumServer(object):
                 while True:
                     time.sleep(4)
                     if self.run("http://127.0.0.1:" + self.kwargs[i]["port"] + "/wd/hub/status"):
-                        LOG.info("-------win_server_ 成功--------------")
+                        LOG.info("-------win_server_ sucess--------------")
                         break
             else:
                 appium = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1,
@@ -56,8 +56,9 @@ class AppiumServer(object):
                     appium_line = appium.stdout.readline().strip().decode()
                     time.sleep(2)
                     if 'listener started' in appium_line or 'Error: listen' in appium_line:
-                        print("----server启动成功---")
+                        print("----El servidor se inició correctamente---")
                         break
+
 
     def stop_server(devices: list):
         sysstr = platform.system()

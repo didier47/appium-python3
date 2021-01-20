@@ -9,7 +9,7 @@ import xlrd
 from untils.log import logger, LOG
 
 
-@logger('获取测试用例所需要的参数')
+@logger('Obtenga los parámetros requeridos por el caso de prueba')
 def huoqu_test(filepath, index):
     try:
         file = xlrd.open_workbook(filepath)
@@ -26,5 +26,5 @@ def huoqu_test(filepath, index):
             listdata.append(dict_canshu)
         return listdata
     except Exception as e:
-        LOG.info('获取测试用例参数失败！失败原因：%s' % e)
+        LOG.info('¡No se pudieron obtener los parámetros del caso de prueba! Razón del fracaso：%s' % e)
         return e

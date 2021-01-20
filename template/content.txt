@@ -2,7 +2,7 @@
     @ddt.data(*data_test)
     def test{}test(self, data_test):
         """{}测试"""
-        regfun=RegFuntion(deriver=self.deriver)
+        regfun=RegFuntion(driver=self.driver)
         self.assertuen=regfun.reg(**data_test)
         cpu=caijicpu(TestappPackage)
         neicun=getnencun(TestappPackage)

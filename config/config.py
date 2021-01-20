@@ -7,9 +7,9 @@
 Configurar la aplicación y probar la información relacionada con el equipo
 '''
 
-TestappPackage = 'com.hotbitmapgg.ohmybilibili'  # 被测应用名称
+TestappPackage = 'com.experitest.ExperiBank'  # 被测应用名称
 
-TestAppActivity = "com.hotbitmapgg.bilibili.module.common.SplashActivity"
+TestAppActivity = "com.experitest.ExperiBank.LoginActivity"
 TestandroidDeviceReadyTimeout = 30  # 超时时间
 TestunicodeKeyboard = True
 TestresetKeyboard = True

@@ -29,7 +29,7 @@ class regtest(Parmer):
         LOG.info(parm)
         self.parm = parm
 
-    """Este es el caso de prueba reg"""
+    """这是reg测试用例"""
 
     def setUp(self):
         """ setup """
@@ -39,11 +39,11 @@ class regtest(Parmer):
                                 TestappPackage=self.parm['appPackage'],
                                 TestappActivity=self.parm['appActivity'])
         self.driver = webdriver.Remote('http://127.0.0.1:' + self.port + '/wd/hub', self.dis_app)
-        LOG.info('El caso de prueba reg comienza a ejecutarse')
+        LOG.info('reg测试用例开始执行')
 
     def tearDown(self):
         """ tearDown  """
-        LOG.info('Se ejecuta el caso de prueba y se restaura el entorno de prueba！')
+        LOG.info('测试用例执行完毕，测试环境正在还原！')
         time.sleep(15)
         self.driver.quit()
 

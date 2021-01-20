@@ -1,8 +1,4 @@
-""" 
-@author: lileilei
-@file: beijing.py 
-@time: 2018/4/19 10:32 
-"""
+
 import os
 
 from config.config import Test_mobile_type
@@ -38,7 +34,7 @@ def readeriosconet():
 
 
 def makecasefile(casename, desc, funtionname):
-    LOG.info("开始生成测试用例文件")
+    LOG.info("Comience a generar archivos de casos de prueba")
     pathone = os.path.join(path, "testcase")
     filepath = pathone + '{}casetest.py'.format(casename)
     if not os.path.exists(filepath):

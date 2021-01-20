@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Date    : 2017-10-14 15:35:17
 # @Author  : leizi
-'''日志相关'''
+'''Relacionado con el registro'''
 import logbook
 import os
 from functools import wraps
@@ -32,8 +32,8 @@ def logger(param):
     def wrap(function):
         @wraps(function)
         def _wrap(*args, **kwargs):
-            LOG.info("当前模块 {}".format(param))
-            LOG.info("全部kwargs参数信息 , {}".format(str(kwargs)))
+            LOG.info("Módulo actual {}".format(param))
+            LOG.info("Toda la información de los parámetros de kwargs , {}".format(str(kwargs)))
             return function(*args, **kwargs)
 
         return _wrap

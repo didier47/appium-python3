@@ -1,9 +1,4 @@
-'''
-@author: lileilei
-@file: Parmeris.py
-@time: 2018/9/21 12:38
-'''
-'''uittest的再次封装'''
+
 import unittest
 
 

@@ -1,0 +1,19 @@
+
+- element_info: //*[@text='OK']
+  find_type: xpath
+  operate_type: click
+  info: Ok
+- element_info: //*[@text="Username"]
+  find_type: xpath
+  operate_type: set_value
+  info: Username
+  msg: company
+- element_info: //*[@text="Password"]
+  find_type: xpath
+  operate_type: set_value
+  info: Password
+  msg: company
+- element_info: //*[@text="Login"]
+  find_type: xpath
+  operate_type: click
+  info: Login

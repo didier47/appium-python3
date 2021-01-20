@@ -3,7 +3,7 @@
 
 # todo  目前没有适配ios和安卓的单独的定位
 
-class deriver_fengzhuang():
+class driver_fengzhuang():
     def __init__(self, driver):
         self.driver = driver
 
